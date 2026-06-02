@@ -1,15 +1,17 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  tanstackStart: {
-    server: { entry: "server" },
-    adapter: 'static',
-    prerender: {
-      routes: ['/', '/about', '/services', '/contact', '/staff'],
-      crawl: true, // This ensures HTML files are generated
-    },
-  },
+  plugins: [
+    TanStackRouterVite({ autoCodeSplitting: true }),
+    react(),
+    tailwindcss(),
+    tsconfigPaths(),
+  ],
   build: {
-    outDir: 'dist/client',
+    outDir: "dist",
   },
 });
