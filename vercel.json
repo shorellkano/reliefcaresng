@@ -1,11 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build && rm -rf dist/server && cp dist/client/index.html dist/client/404.html",
   "outputDirectory": "dist/client",
-  "framework": null,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "framework": null
 }
