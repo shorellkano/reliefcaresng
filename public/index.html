@@ -8,7 +8,11 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/assets/index-CrCDqiAL.js"></script>
+    <script type="module">
+      // Prevent SSR hydration check
+      window.__TSR_DEHYDRATED__ = { ctx: null };
+      window.__TSR__ = { matches: [] };
+    </script>
     <script type="module" src="/assets/client-CkXFJqOd.js"></script>
   </body>
 </html>
